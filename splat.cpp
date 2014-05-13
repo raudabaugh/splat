@@ -154,7 +154,8 @@ struct dem {	int min_north;
 		short data[IPPD][IPPD];
 		unsigned char mask[IPPD][IPPD];
 		unsigned char signal[IPPD][IPPD];
-           }	dem[MAXPAGES];
+           };
+struct dem* dem = new struct dem[MAXPAGES];
 
 struct LR {	double eps_dielect; 
 		double sgm_conductivity; 
@@ -8834,5 +8835,6 @@ int main(int argc, char *argv[])
 
 	/* That's all, folks! */
 
+    delete [] dem;
 	return 0;
 }

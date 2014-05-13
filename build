@@ -7,13 +7,13 @@
 cpu=`uname -m`
 model=""
 
-if [ "$cpu" = "x86_64" ]; then
-        cpu="x86-64"
-	model="-mcmodel=medium"
-
-elif [[ `uname -a` =~ Darwin ]]; then   #checking for MAC OSX
+if [[ `uname -a` =~ Darwin ]]; then   #checking for MAC OSX
 	cpu="x86-64"
 	model=""
+
+elif [ "$cpu" = "x86_64" ]; then
+        cpu="x86-64"
+	model="-mcmodel=medium"
 
 elif [ "$cpu" = "sun4u" ]; then
 	cpu=""
